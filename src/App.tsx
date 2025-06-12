@@ -1,3 +1,4 @@
+import React, { useRef, useEffect } from 'react';
 import { Sofa, Clock, MapPin, Phone, Mail, ArrowRight, Hammer, Sparkles, Star } from 'lucide-react';
 
 function App() {
@@ -130,29 +131,48 @@ function App() {
               Explore our portfolio of custom furniture and restoration projects that showcase our craftsmanship
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[
-              { id: 1, name: "Luxury Sofa", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.10.48_6aaf4d88.jpg" },
-              { id: 2, name: "Elegant Chair", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.48_7b126bca.jpg" },
-              { id: 3, name: "Modern Sectional", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.07.12_48245738.jpg" },
-              { id: 4, name: "Classic Armchair", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.50_f54e3061.jpg" },
-              { id: 5, name: "Vintage Table", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.51_99cc4773.jpg" },
-              { id: 6, name: "Custom Ottoman", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.10.29_0e71e3d9.jpg" },
-            ].map(({ id, name, path }) => (
-              <div key={id} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                <img 
-                  src={path}
-                  alt={name}
-                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h4 className="font-semibold text-sm sm:text-lg">Custom Furniture</h4>
-                    <p className="text-xs sm:text-sm text-gray-200">Handcrafted Excellence</p>
-                  </div>
-                </div>
+          {/* Horizontal scroll gallery */}
+          <HorizontalGallery />
+        </div>
+      </section>
+
+      {/* Video Gallery */}
+      <section id="video-gallery" className="bg-gradient-to-br from-gray-50 to-slate-100 py-16 sm:py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Watch Our Craft</h2>
+            <p className="text-sm sm:text-xl text-gray-600 max-w-2xl mx-auto">
+              See our team in action and the quality of our work in these short videos
+            </p>
+          </div>
+          <div className="flex space-x-8 overflow-x-auto scrollbar-hide py-2 justify-center">
+            <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
+              <video controls className="w-full h-80 object-cover">
+                <source src="/LatoyasCouchesFurnitureReactVite/qwe.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-2 text-center bg-white">
+                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 1 - qwe.mp4</span>
               </div>
-            ))}
+            </div>
+            <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
+              <video controls className="w-full h-80 object-cover">
+                <source src="/LatoyasCouchesFurnitureReactVite/asd.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-2 text-center bg-white">
+                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 2 - asd.mp4</span>
+              </div>
+            </div>
+            <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
+              <video controls className="w-full h-80 object-cover">
+                <source src="/LatoyasCouchesFurnitureReactVite/zxc.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-2 text-center bg-white">
+                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 3 - zxc.mp4</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -266,6 +286,66 @@ function App() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+const galleryItems = [
+  { id: 1, name: "Luxury Sofa", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.10.48_6aaf4d88.jpg" },
+  { id: 2, name: "Elegant Chair", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.48_7b126bca.jpg" },
+  { id: 3, name: "Modern Sectional", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.07.12_48245738.jpg" },
+  { id: 4, name: "Classic Armchair", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.50_f54e3061.jpg" },
+  { id: 5, name: "Vintage Table", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.51_99cc4773.jpg" },
+  { id: 6, name: "Custom Ottoman", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.10.29_0e71e3d9.jpg" },
+];
+
+function HorizontalGallery() {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    let timeout;
+    let direction = 1;
+    const scroll = () => {
+      if (!scrollRef.current) return;
+      const el = scrollRef.current;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll) direction = -1;
+      if (el.scrollLeft <= 0) direction = 1;
+      el.scrollBy({ left: direction * 2, behavior: "smooth" });
+      timeout = setTimeout(scroll, 20);
+    };
+    // Start after 2 seconds
+    const startTimeout = setTimeout(scroll, 2000);
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(startTimeout);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={scrollRef}
+      className="flex space-x-8 overflow-x-auto scrollbar-hide py-2"
+      style={{ scrollBehavior: "smooth" }}
+    >
+      {galleryItems.map(({ id, name, path }) => (
+        <div
+          key={id}
+          className="group relative min-w-[320px] max-w-xs flex-shrink-0 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <img
+            src={path}
+            alt={name}
+            className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute bottom-4 left-4 text-white">
+              <h4 className="font-semibold text-sm sm:text-lg">Custom Furniture</h4>
+              <p className="text-xs sm:text-sm text-gray-200">Handcrafted Excellence</p>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
