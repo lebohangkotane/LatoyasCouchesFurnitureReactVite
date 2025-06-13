@@ -234,50 +234,6 @@ function App() {
                 </div>
               </div>
             </div>
-            <form className="bg-white p-8 rounded-xl shadow-lg space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
-                  placeholder="Enter your full name"
-                />
-              </div>
-              <div>
-                <label htmlFor="email-contact" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                <input
-                  type="email"
-                  id="email-contact"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
-                  placeholder="Enter your email address"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Message</label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
-                  placeholder="Tell us about your furniture needs..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-amber-700 to-amber-600 text-white px-6 py-4 rounded-lg hover:from-amber-800 hover:to-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold text-sm sm:text-base"
-              >
-                Send Message
-              </button>
-            </form>
           </div>
         </div>
       </section>
@@ -323,19 +279,21 @@ const galleryItems = [
 ];
 
 function HorizontalGallery() {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isTouching = useRef(false);
 
   useEffect(() => {
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     let direction = 1;
+    // Slow down: 1px every 400ms (ultra slow)
     const scroll = () => {
-      if (!scrollRef.current) return;
+      if (!scrollRef.current || isTouching.current) return;
       const el = scrollRef.current;
       const maxScroll = el.scrollWidth - el.clientWidth;
       if (el.scrollLeft >= maxScroll) direction = -1;
       if (el.scrollLeft <= 0) direction = 1;
-      el.scrollBy({ left: direction * 2, behavior: "smooth" });
-      timeout = setTimeout(scroll, 20);
+      el.scrollBy({ left: direction * 1, behavior: "smooth" });
+      timeout = setTimeout(scroll, 2000); // slowest: 1px per 400ms
     };
     // Start after 2 seconds
     const startTimeout = setTimeout(scroll, 2000);
@@ -345,21 +303,36 @@ function HorizontalGallery() {
     };
   }, []);
 
+  // Pause auto-scroll on touch (mobile)
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const handleTouchStart = () => { isTouching.current = true; };
+    const handleTouchEnd = () => { isTouching.current = false; };
+    el.addEventListener('touchstart', handleTouchStart, { passive: true });
+    el.addEventListener('touchend', handleTouchEnd, { passive: true });
+    return () => {
+      el.removeEventListener('touchstart', handleTouchStart);
+      el.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, []);
+
   return (
     <div
       ref={scrollRef}
-      className="flex space-x-8 overflow-x-auto scrollbar-hide py-2"
-      style={{ scrollBehavior: "smooth" }}
+      className="flex space-x-8 overflow-x-auto scrollbar-hide py-2 snap-x snap-mandatory"
+      style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}
     >
       {galleryItems.map(({ id, name, path }) => (
         <div
           key={id}
-          className="group relative min-w-[320px] max-w-xs flex-shrink-0 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+          className="group relative min-w-[320px] max-w-xs flex-shrink-0 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 snap-start"
         >
           <img
             src={path}
             alt={name}
-            className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500 select-none pointer-events-auto"
+            draggable="false"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="absolute bottom-4 left-4 text-white">
