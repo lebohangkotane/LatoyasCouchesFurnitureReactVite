@@ -148,29 +148,38 @@ function App() {
           <div className="flex space-x-8 overflow-x-auto scrollbar-hide py-2 justify-center">
             <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
               <video controls className="w-full h-80 object-cover">
-                <source src="/LatoyasCouchesFurnitureReactVite/qwe.mp4" type="video/mp4" />
+                <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 11.01.19_2e26aa72.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-2 text-center bg-white">
-                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 1 - qwe.mp4</span>
+                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 1 - WhatsApp Video 2025-06-10 at 11.01.19_2e26aa72.mp4</span>
               </div>
             </div>
             <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
               <video controls className="w-full h-80 object-cover">
-                <source src="/LatoyasCouchesFurnitureReactVite/asd.mp4" type="video/mp4" />
+                <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 10.09.11_e8c8ee36.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-2 text-center bg-white">
-                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 2 - asd.mp4</span>
+                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 2 - WhatsApp Video 2025-06-10 at 10.09.11_e8c8ee36.mp4</span>
               </div>
             </div>
             <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
               <video controls className="w-full h-80 object-cover">
-                <source src="/LatoyasCouchesFurnitureReactVite/zxc.mp4" type="video/mp4" />
+                <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 10.05.10_19c2548c.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-2 text-center bg-white">
-                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 3 - zxc.mp4</span>
+                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 3 - WhatsApp Video 2025-06-10 at 10.05.10_19c2548c.mp4</span>
+              </div>
+            </div>
+            <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
+              <video controls className="w-full h-80 object-cover">
+                <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 10.03.40_ab18854a.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-2 text-center bg-white">
+                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 4 - WhatsApp Video 2025-06-10 at 10.03.40_ab18854a.mp4</span>
               </div>
             </div>
           </div>
@@ -297,6 +306,20 @@ const galleryItems = [
   { id: 4, name: "Classic Armchair", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.50_f54e3061.jpg" },
   { id: 5, name: "Vintage Table", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.51_99cc4773.jpg" },
   { id: 6, name: "Custom Ottoman", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.10.29_0e71e3d9.jpg" },
+  { id: 7, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.07.26_54bc2f05.jpg" },
+  { id: 8, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.07.13_de1f9e58.jpg" },
+  { id: 9, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.49_fdd477b3.jpg" },
+  { id: 10, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/WhatsApp Image 2025-06-04 at 10.06.47_2c0a4983.jpg" },
+  { id: 11, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0122.jpg" },
+  { id: 12, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0121.jpg" },
+  { id: 13, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0120.jpg" },
+  { id: 14, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0119.jpg" },
+  { id: 15, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0118.jpg" },
+  { id: 16, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0117.jpg" },
+  { id: 17, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0116.jpg" },
+  { id: 18, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0115.jpg" },
+  { id: 19, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0114.jpg" },
+  { id: 20, name: "Gallery Image", path: "/LatoyasCouchesFurnitureReactVite/IMG-20250604-WA0113.jpg" },
 ];
 
 function HorizontalGallery() {
