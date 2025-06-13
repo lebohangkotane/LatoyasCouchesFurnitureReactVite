@@ -151,36 +151,24 @@ function App() {
                 <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 11.01.19_2e26aa72.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="p-2 text-center bg-white">
-                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 1 - WhatsApp Video 2025-06-10 at 11.01.19_2e26aa72.mp4</span>
-              </div>
             </div>
             <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
               <video controls className="w-full h-80 object-cover">
                 <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 10.09.11_e8c8ee36.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="p-2 text-center bg-white">
-                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 2 - WhatsApp Video 2025-06-10 at 10.09.11_e8c8ee36.mp4</span>
-              </div>
             </div>
             <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
               <video controls className="w-full h-80 object-cover">
                 <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 10.05.10_19c2548c.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="p-2 text-center bg-white">
-                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 3 - WhatsApp Video 2025-06-10 at 10.05.10_19c2548c.mp4</span>
-              </div>
             </div>
             <div className="min-w-[320px] max-w-xs flex-shrink-0 rounded-xl shadow-lg overflow-hidden bg-black">
               <video controls className="w-full h-80 object-cover">
                 <source src="/LatoyasCouchesFurnitureReactVite/WhatsApp Video 2025-06-10 at 10.03.40_ab18854a.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="p-2 text-center bg-white">
-                <span className="font-semibold text-sm sm:text-lg text-gray-800">Video 4 - WhatsApp Video 2025-06-10 at 10.03.40_ab18854a.mp4</span>
-              </div>
             </div>
           </div>
         </div>
